@@ -71,8 +71,6 @@ def client(facade):
     facade.driving()
 
 
-# class PressGasPedalSubsystem:
-#
 
 if __name__ == "__main__":
 
