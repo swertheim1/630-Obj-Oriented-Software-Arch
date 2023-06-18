@@ -4,6 +4,7 @@ from person import Person, Base
 from employee import Employees
 from customer import Customers
 
+
 def main():
     # create engine is for connecting to different database engines (sqlite, mySQL, etc.)
     # declarative base is the base class we are inheriting from for our classes
@@ -16,13 +17,13 @@ def main():
     session = Session()
 
     session.add_all([
-        Person(firstname='Joe', lastname='Smith', phone='1234567890', address='31 Main St.',
+        Person(firstname='Harry', lastname='Smith', phone='1234567890', address='31 Main St.',
                city='San Diego', state='CA', zip_code=93214, email='joe.smith@smith.com', country='US'),
-        Person(firstname='Mary', lastname='Smith', phone='1234567891', address='31 Main St.',
+        Person(firstname='Tina', lastname='Smith', phone='1234567891', address='31 Main St.',
                city='San Diego', state='CA', zip_code=93214, email='mary.smith@smith.com', country='US'),
-        Person(firstname='Becky', lastname='Jones', phone='5412953321', address='2121 E 21st St.',
+        Person(firstname='Sally', lastname='Jones', phone='5412953321', address='2121 E 21st St.',
                city='Hood River', state='OR', zip_code=33125, email='bjones@jones.com', country='US'),
-        Person(firstname='Joe', lastname='Green', phone='2145366478', address='18 Heights Blvd.',
+        Person(firstname='Marvin', lastname='Green', phone='2145366478', address='18 Heights Blvd.',
                city='Houston', state='TX', zip_code=76214, email='joegreen@green.com', country='US')])
 
     session.commit()
@@ -36,7 +37,7 @@ def main():
                   ssn='191251234', pay_rate=22.50, job_title='Front Desk Clerk'),
         Employees(firstname='Mary', lastname='Smith', phone='1234567891', address='31 Main St.',
                   city='San Diego', state='CA', zip_code=93214, email='mary.smith@smith.com', country='US',
-                  ssn='191251238', pay_rate=22.50, job_title='Front Desk Clerk')])
+                  ssn='191251238', pay_rate=22.50, job_title='Night Auditor')])
     sessionB.commit()
 
     sessionC = Session()
@@ -44,7 +45,7 @@ def main():
         Customers(firstname='Becky', lastname='Jones', phone='5412953321', address='2121 E 21st St.',
                   city='Hood River', state='OR', zip_code=33125, email='bjones@jones.com', country='US',
                   current_guest=0),
-        Customers(firstname='Joe', lastname='Green', phone='2145366478', address='18 Heights Blvd.',
+        Customers(firstname='Esther', lastname='Green', phone='2145366478', address='18 Heights Blvd.',
                   city='Houston', state='TX', zip_code=76214, email='joegreen@green.com', country='US',
                   current_guest=1)])
     sessionC.commit()
@@ -57,7 +58,7 @@ def main():
     print()
 
     sessionE = Session()
-    current_employee = sessionE.query(Customers).all()
+    current_employee = sessionE.query(Employees).all()
     for employee in current_employee:
         print('<<<< Current Employees >>>>', employee.firstname, employee.lastname, 'Address: ',
               employee.address, employee.city, employee.state, employee.zip_code, employee.country)
@@ -66,7 +67,20 @@ def main():
     sessionF = Session()
     current_person = sessionF.query(Person).all()
     # for person in current_person:
-    print('<<<< Current Person >>>>', current_person)
+    print('<<<< Current People >>>>', current_person)
     print()
+
+    sessionG = Session()
+    current_customer = sessionG.query(Customers).all()
+    # for person in current_person:
+    print('<<<< Current Customers >>>>', current_customer)
+    print()
+
+    sessionH = Session()
+    current_employee = sessionH.query(Employees).all()
+    # for person in current_person:
+    print('<<<< Current Employees >>>>', current_employee)
+    print()
+
 
 main()

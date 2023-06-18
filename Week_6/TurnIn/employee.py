@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Float, Integer
+from sqlalchemy import Column, String, Float, Integer, ForeignKey
 from person import Base
 
 
@@ -21,6 +21,7 @@ class Employees(Base):
             zip_code: String, required
             country: String, required
             phone: String, required
+            person_id: Integer, fk
 
         methods
             __ init__
@@ -44,6 +45,7 @@ class Employees(Base):
     zip_code = Column('zip_code', String(10))
     country = Column('country', String(2))
     phone = Column('phone', String(10))
+    person_id = Column('person_id', Integer, ForeignKey('people_table.person_id'))
 
     def __repr__(self):
         return f'{self.ssn} {self.firstname} {self.lastname} {self.address} {self.email}' \

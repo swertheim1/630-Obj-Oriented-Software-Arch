@@ -43,6 +43,7 @@ class Person(Base):
     country = Column('country', String(2))
     phone = Column('phone', String(10))
 
+
     def __repr__(self):
         return f'({self.person_id}) {self.firstname} {self.lastname} ({self.address} {self.email}' \
                f'{self.city} {self.state} {self.zip_code} {self.country} {self.phone})'
