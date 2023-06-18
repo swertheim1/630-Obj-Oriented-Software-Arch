@@ -28,7 +28,8 @@ class Person(Base):
             __repr__
 
     """
-    __tablename__ = 'people'
+    __tablename__ = 'people_table'
+
 
     # columns
     person_id = Column('person_id', Integer, primary_key=True)

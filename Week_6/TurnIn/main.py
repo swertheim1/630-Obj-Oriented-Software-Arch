@@ -4,7 +4,6 @@ from person import Person, Base
 from employee import Employees
 from customer import Customers
 
-
 def main():
     # create engine is for connecting to different database engines (sqlite, mySQL, etc.)
     # declarative base is the base class we are inheriting from for our classes

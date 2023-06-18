@@ -29,6 +29,7 @@ class Employees(Base):
     """
     __tablename__ = 'employees_table'
 
+
     # columns
     emp_id = Column('emp_id', Integer, primary_key=True)
     ssn = Column('ssn', String, nullable=False)

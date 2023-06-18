@@ -23,7 +23,8 @@ class Customers(Base):
             __repr__
 
     """
-    __tablename__ = 'customer'
+    __tablename__ = 'customer_table'
+
 
     # columns
     customer_id = Column('customer_id', Integer, primary_key=True)
